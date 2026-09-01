@@ -26,6 +26,7 @@
 import { computed } from 'vue';
 import { useDataStore } from '../store';
 import CandidateCard from './components/CandidateCard.vue';
+import { generateBatch } from './generator';
 
 const store = useDataStore();
 
@@ -35,6 +36,23 @@ const candidates = computed(() => [
   store.data.候选.候选3,
   store.data.候选.候选4,
 ]);
+
+function writeBatch() {
+  const batch = generateBatch();
+  store.data.候选.候选1 = batch[0];
+  store.data.候选.候选2 = batch[1];
+  store.data.候选.候选3 = batch[2];
+  store.data.候选.候选4 = batch[3];
+}
+
+function isEmpty() {
+  return !store.data.候选.候选1.名字 && !store.data.候选.候选2.名字 && !store.data.候选.候选3.名字 && !store.data.候选.候选4.名字;
+}
+
+// 首次加载时，如果候选为空，自动生成一批
+if (isEmpty()) {
+  writeBatch();
+}
 
 function onSelect(c: { 名字: string; 性别: string; 年龄: number; 外貌: string; 背景: string }) {
   if (!c.名字) return;
@@ -46,18 +64,19 @@ function onSelect(c: { 名字: string; 性别: string; 年龄: number; 外貌: s
   store.data.绿主.已选定 = true;
   store.data.剧情.当前阶段 = '线上';
   createChatMessages([
-    { role: 'user', name: '你', message: '我选了' + c.名字 + '（' + c.性别 + '）。' },
+    {
+      role: 'user',
+      name: '你',
+      message:
+        '我选了' + c.名字 + '（' + c.性别 + '，' + c.年龄 + '岁）。请根据他的外貌和背景，确定他的性格底色、身份职业、外貌气质、调教风格、对洛洛态度这五维，然后开始洛洛与他的线上聊天。',
+    },
   ]).then(() => {
     triggerSlash('/trigger');
   });
 }
 
 function onReroll() {
-  createChatMessages([
-    { role: 'user', name: '你', message: '换一批，重新生成四个候选绿主。' },
-  ]).then(() => {
-    triggerSlash('/trigger');
-  });
+  writeBatch();
 }
 </script>
 
