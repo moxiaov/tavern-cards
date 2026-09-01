@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 温柔暖调配色 */
+  --c-text: #5a4a42;        /* 深暖棕：文字 */
+  --c-text-muted: #9b8a7f;  /* 浅暖灰：次要文字 */
+  --c-surface: #fdf6f0;     /* 奶白底 */
+  --c-surface-warm: #f7e8dc;/* 暖米色：卡片底 */
+  --c-border: #e8d5c8;      /* 浅暖边框 */
+  --c-primary: #e6a4b4;     /* 樱花粉：主色、进度条 */
+  --c-primary-deep: #d98a9e;/* 深粉：强调 */
+  --c-accent: #f3c6a5;      /* 蜜桃橙：点缀 */
+  --c-heart: #e77d8f;       /* 心形色 */
+
+  --font-main: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}

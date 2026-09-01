@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "洛洛": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "精神归属": {
+          "default": 0,
+          "type": "number"
+        },
+        "肉体开发度": {
+          "default": 0,
+          "type": "number"
+        },
+        "对绿主感情": {
+          "default": 0,
+          "type": "number"
+        },
+        "生活归属": {
+          "default": 0,
+          "type": "number"
+        },
+        "当前状态": {
+          "default": "尚未开始",
+          "type": "string"
+        }
+      }
+    },
+    "绿主": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "已选定": {
+          "default": false,
+          "type": "boolean"
+        },
+        "名字": {
+          "default": "",
+          "type": "string"
+        },
+        "性别": {
+          "default": "",
+          "type": "string"
+        },
+        "年龄": {
+          "default": 0,
+          "type": "number"
+        },
+        "外貌": {
+          "default": "",
+          "type": "string"
+        },
+        "背景故事": {
+          "default": "",
+          "type": "string"
+        },
+        "五维": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "性格底色": {
+              "default": "",
+              "type": "string"
+            },
+            "身份职业": {
+              "default": "",
+              "type": "string"
+            },
+            "外貌气质": {
+              "default": "",
+              "type": "string"
+            },
+            "调教风格": {
+              "default": "",
+              "type": "string"
+            },
+            "对洛洛态度": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "候选": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "候选1": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "名字": {
+              "default": "",
+              "type": "string"
+            },
+            "性别": {
+              "default": "",
+              "type": "string"
+            },
+            "年龄": {
+              "default": 0,
+              "type": "number"
+            },
+            "外貌": {
+              "default": "",
+              "type": "string"
+            },
+            "背景": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        },
+        "候选2": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "名字": {
+              "default": "",
+              "type": "string"
+            },
+            "性别": {
+              "default": "",
+              "type": "string"
+            },
+            "年龄": {
+              "default": 0,
+              "type": "number"
+            },
+            "外貌": {
+              "default": "",
+              "type": "string"
+            },
+            "背景": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        },
+        "候选3": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "名字": {
+              "default": "",
+              "type": "string"
+            },
+            "性别": {
+              "default": "",
+              "type": "string"
+            },
+            "年龄": {
+              "default": 0,
+              "type": "number"
+            },
+            "外貌": {
+              "default": "",
+              "type": "string"
+            },
+            "背景": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        },
+        "候选4": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "名字": {
+              "default": "",
+              "type": "string"
+            },
+            "性别": {
+              "default": "",
+              "type": "string"
+            },
+            "年龄": {
+              "default": 0,
+              "type": "number"
+            },
+            "外貌": {
+              "default": "",
+              "type": "string"
+            },
+            "背景": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "剧情": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "当前阶段": {
+          "default": "选人",
+          "type": "string"
+        },
+        "已完成里程碑": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "当前时间": {
+          "default": "",
+          "type": "string"
+        },
+        "当前场景": {
+          "default": "",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
