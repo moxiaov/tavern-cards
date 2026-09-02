@@ -1,16 +1,10 @@
 <template>
   <div class="candidate" :class="{ empty: !candidate.名字 }">
-    <div class="c-head">
-      <span class="c-name">{{ candidate.名字 || '待生成' }}</span>
-      <span class="c-meta">{{ candidate.性别 }}{{ candidate.年龄 ? ' · ' + candidate.年龄 + '岁' : '' }}</span>
-    </div>
-    <div class="c-body">
-      <p class="c-look">{{ candidate.外貌 || '——' }}</p>
-      <p class="c-bg">{{ candidate.背景 || '' }}</p>
-    </div>
-    <button v-if="candidate.名字" class="c-select" type="button" @click="$emit('select')">
-      选定
-    </button>
+    <span class="c-name">{{ candidate.名字 || '待生成' }}</span>
+    <span class="c-meta">{{ candidate.性别 }}{{ candidate.年龄 ? ' · ' + candidate.年龄 + '岁' : '' }}</span>
+    <span class="c-look">{{ candidate.外貌 || '' }}</span>
+    <span class="c-bg">{{ candidate.背景 || '' }}</span>
+    <button v-if="candidate.名字" class="c-select" type="button" @click="$emit('select')">选定</button>
   </div>
 </template>
 
@@ -24,29 +18,27 @@ defineEmits<{ (e: 'select'): void }>();
 
 <style lang="scss" scoped>
 .candidate {
-  border: 1px solid var(--c-border);
-  border-radius: 10px;
-  background: #fff;
-  padding: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-height: 120px;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  border-bottom: 1px dashed var(--c-border);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.candidate:last-child {
+  border-bottom: none;
 }
 
 .candidate.empty {
   opacity: 0.5;
 }
 
-.c-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
 .c-name {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--c-text);
 }
 
@@ -55,39 +47,29 @@ defineEmits<{ (e: 'select'): void }>();
   color: var(--c-text-muted);
 }
 
-.c-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .c-look {
-  font-size: 12px;
   color: var(--c-text);
-  line-height: 1.4;
 }
 
 .c-bg {
-  font-size: 11px;
   color: var(--c-text-muted);
-  line-height: 1.35;
 }
 
 .c-select {
-  align-self: flex-end;
-  padding: 4px 14px;
-  border: none;
-  border-radius: 12px;
-  background: var(--c-primary);
-  color: #fff;
+  margin-left: auto;
+  padding: 2px 12px;
+  border: 1px solid var(--c-primary-deep);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--c-primary-deep);
   font-family: inherit;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .c-select:hover {
   background: var(--c-primary-deep);
+  color: #fff;
 }
 </style>

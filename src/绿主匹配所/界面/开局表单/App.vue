@@ -114,9 +114,8 @@ function onReroll() {
 }
 
 .candidates {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
   padding: 12px 14px;
 }
 
