@@ -46,9 +46,9 @@ import ProgressRow from './components/ProgressRow.vue';
 
 const store = useDataStore();
 
-const stageNames8 = ['心在你这', '好奇松动', '身体先背叛', '左右为难', '天平倾斜', '已属他她', '全盘换主', '亲密知己'];
+const stageNames8 = ['心在你这', '好奇松动', '身体先背叛', '左右为难', '天平倾斜', '已属他她', '全盘换主', '沦为玩物/妻奴'];
 const stageNames10 = ['只认你', '被越界的刺激', '敏感带失控', '初次口交', '首次交合', '被夺走的节奏', '调教手段介入', '身体沉迷', '彻底开发', '成他的形状'];
-const stageNames12 = ['只有你', '第一次晚归', '第一次不归', '习惯松动', '物品入侵', '重心倾斜', '身份松动', '半公开', '主线转移', '实质同居', '成为他的妻', '绿主家的中心'];
+const stageNames12 = ['只有你', '第一次晚归', '第一次不归', '习惯松动', '物品入侵', '重心倾斜', '身份松动', '半公开', '主线转移', '实质同居', '成为他的妻/奴', '沦为玩物/妻奴'];
 
 function stageIndex(value: number, total: number): number {
   const idx = Math.floor(value / 100 * total);
