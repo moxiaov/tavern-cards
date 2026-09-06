@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "状态栏数据": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "忍耐汁量": {
+          "default": 0,
+          "type": "number"
+        },
+        "解放时刻": {
+          "default": "",
+          "type": "string"
+        }
+      }
+    },
+    "隐式追踪": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "苏暖习惯度": {
+          "default": 0,
+          "type": "number"
+        },
+        "当前被触发部位": {
+          "default": "无",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
