@@ -6,6 +6,8 @@
     </div>
 
     <div class="body">
+      <div class="heart">{{ store.data.状态栏数据.苏暖心语 || '……' }}</div>
+
       <div class="section">
         <div class="section-title">忍耐汁收集管</div>
         <div class="track">
@@ -21,14 +23,23 @@
         <div class="note">{{ releaseNote }}</div>
       </div>
 
+      <div class="section">
+        <div class="section-title">透明高筒靴</div>
+        <div class="track boot">
+          <div class="fill boot-fill" :style="{ width: store.data.捂脚靴.汗液量 + '%' }"></div>
+          <span class="pct">{{ store.data.捂脚靴.汗液量 }}%</span>
+        </div>
+        <div class="note">{{ bootNote }}</div>
+      </div>
+
       <div class="section row">
         <div class="mini">
           <span class="mini-label">此刻被挠</span>
           <span class="mini-value">{{ store.data.隐式追踪.当前被触发部位 }}</span>
         </div>
         <div class="mini">
-          <span class="mini-label">习惯度</span>
-          <span class="mini-value">{{ store.data.隐式追踪.苏暖习惯度 }}</span>
+          <span class="mini-label">今日被规训</span>
+          <span class="mini-value">{{ store.data.状态栏数据.今日被规训次数 }} 次</span>
         </div>
       </div>
     </div>
@@ -89,6 +100,16 @@ const releaseNote = computed(() => {
   if (t - now.value <= 0) return '她笑吟吟地等着看你憋不住';
   return '忍着，越久射出来越舒服';
 });
+
+const bootNote = computed(() => {
+  const v = store.data.捂脚靴.汗液量;
+  const smell = store.data.捂脚靴.脚味浓度;
+  const days = store.data.捂脚靴.捂脚持续天数;
+  if (v >= 100) return `捂到小腿深，浓汗泛油光 · 已捂 ${days} 天`;
+  if (v >= 50) return `汗液在靴里逛荡 · ${smell} · 已捂 ${days} 天`;
+  if (v > 0) return `薄薄一层汗 · ${smell} · 已捂 ${days} 天`;
+  return `没在捂脚 · ${smell}`;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -133,6 +154,17 @@ const releaseNote = computed(() => {
   gap: 10px;
 }
 
+.heart {
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--c-text);
+  font-style: italic;
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -158,6 +190,10 @@ const releaseNote = computed(() => {
   height: 100%;
   background: linear-gradient(90deg, var(--c-lust), var(--c-lust-deep));
   transition: width 0.5s ease;
+}
+
+.boot-fill {
+  background: linear-gradient(90deg, var(--c-glass), #e7cf9a);
 }
 
 .pct {

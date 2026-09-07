@@ -14,6 +14,32 @@
         "解放时刻": {
           "default": "",
           "type": "string"
+        },
+        "苏暖心语": {
+          "default": "",
+          "type": "string"
+        },
+        "今日被规训次数": {
+          "default": 0,
+          "type": "number"
+        }
+      }
+    },
+    "捂脚靴": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "汗液量": {
+          "default": 0,
+          "type": "number"
+        },
+        "脚味浓度": {
+          "default": "淡",
+          "type": "string"
+        },
+        "捂脚持续天数": {
+          "default": 0,
+          "type": "number"
         }
       }
     },
@@ -21,10 +47,6 @@
       "default": {},
       "type": "object",
       "properties": {
-        "苏暖习惯度": {
-          "default": 0,
-          "type": "number"
-        },
         "当前被触发部位": {
           "default": "无",
           "type": "string"
