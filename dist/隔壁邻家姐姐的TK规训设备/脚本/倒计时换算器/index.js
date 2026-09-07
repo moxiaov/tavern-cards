@@ -1,0 +1,2 @@
+$(async()=>{await waitGlobalInitialized('Mvu'),eventOn(Mvu.events.VARIABLE_UPDATE_ENDED,t=>{const e=_.get(t,'stat_data.状态栏数据.解放时刻');if('string'!=typeof e||''===e.trim())return;const n=function(t){const e=t.trim();if(''===e)return null;const n=/(\d+(?:\.\d+)?)\s*(天|日|小时|时|分钟|分|秒)/g,a={天:864e5,日:864e5,小时:36e5,时:36e5,分钟:6e4,分:6e4,秒:1e3};let l,i=0,r=!1;for(;null!==(l=n.exec(e));){i+=parseFloat(l[1])*a[l[2]],r=!0}return!r||i<=0?null:i}(e);null!==n&&_.set(t,'stat_data.状态栏数据.解放时刻',new Date(Date.now()+n).toISOString())})});
+//# sourceMappingURL=index.js.map
