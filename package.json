@@ -18,12 +18,21 @@
     "@types/jquery": "^4.0.1",
     "@types/jqueryui": "^1.12.24",
     "@types/lodash": "^4.17.25",
+<<<<<<< HEAD
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/showdown": "^2.0.6",
     "@types/toastr": "^2.1.44",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/parser": "^8.70.0",
+=======
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/showdown": "^2.0.6",
+    "@types/toastr": "^2.1.44",
+    "@types/webpack": "^5.28.5",
+    "@typescript-eslint/parser": "^8.69.0",
+>>>>>>> c3dda85b40baa6188b2eff4e263cb20fedabcecf
     "autoprefixer": "^10.5.5",
     "chokidar": "^5.0.0",
     "css-loader": "^7.1.5",
