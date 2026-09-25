@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "系统": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "日期": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "时间": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "当前场景": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "当前事件": {
+          "default": "待初始化",
+          "type": "string"
+        }
+      }
+    },
+    "隐奸": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "主奴关系深度": {
+          "default": 0,
+          "type": "number"
+        },
+        "杨蕾开发度": {
+          "default": 0,
+          "type": "number"
+        },
+        "杨蕾当前状态": {
+          "default": "空闲",
+          "type": "string",
+          "enum": [
+            "空闲",
+            "被调教中",
+            "刚被玩弄完"
+          ]
+        },
+        "隐奸事件记录": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "杨蕾痕迹": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "恋足痕迹",
+              "TK痕迹",
+              "SM痕迹",
+              "味道"
+            ]
+          },
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": [
+            "恋足痕迹",
+            "TK痕迹",
+            "SM痕迹",
+            "味道"
+          ]
+        },
+        "杨蕾脚状态": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "捂脚天数": {
+              "default": 0,
+              "type": "number"
+            },
+            "袜子状态": {
+              "default": "待初始化",
+              "type": "string"
+            },
+            "脚味程度": {
+              "default": "待初始化",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "杨蕾": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "对小v依赖度": {
+          "default": 0,
+          "type": "number"
+        }
+      }
+    }
+  }
+}
