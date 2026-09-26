@@ -36,6 +36,10 @@
           "default": 0,
           "type": "number"
         },
+        "服从度": {
+          "default": 0,
+          "type": "number"
+        },
         "杨蕾当前状态": {
           "default": "空闲",
           "type": "string",

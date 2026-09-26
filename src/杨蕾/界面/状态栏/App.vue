@@ -9,63 +9,48 @@
     </header>
 
     <div class="body">
-      <section class="block">
-        <h3 class="block-title"><i class="fa-regular fa-moon"></i> 你看不见的时候</h3>
-        <div class="bar-row">
-          <span class="bar-label">关系</span>
-          <div class="track">
-            <div class="fill fill-danger" :style="{ width: store.data.隐奸.主奴关系深度 + '%' }"></div>
-          </div>
+      <section class="bar-block">
+        <div class="bar-head">
+          <span class="bar-name">主奴关系</span>
           <span class="bar-pct">{{ store.data.隐奸.主奴关系深度 }}</span>
         </div>
-        <div class="bar-row">
-          <span class="bar-label">开发</span>
-          <div class="track">
-            <div class="fill fill-danger" :style="{ width: store.data.隐奸.杨蕾开发度 + '%' }"></div>
-          </div>
+        <div class="track">
+          <div class="fill fill-danger" :style="{ width: store.data.隐奸.主奴关系深度 + '%' }"></div>
+        </div>
+        <div class="bar-note">{{ relationNote }}</div>
+      </section>
+
+      <section class="bar-block">
+        <div class="bar-head">
+          <span class="bar-name">开发度</span>
           <span class="bar-pct">{{ store.data.隐奸.杨蕾开发度 }}</span>
         </div>
-        <div class="note">{{ devNote }}</div>
-      </section>
-
-      <section class="block">
-        <h3 class="block-title"><i class="fa-regular fa-shoe-prints"></i> 她的脚</h3>
-        <div class="chips">
-          <span class="chip">捂脚 {{ store.data.隐奸.杨蕾脚状态.捂脚天数 }} 天</span>
-          <span class="chip">{{ store.data.隐奸.杨蕾脚状态.袜子状态 }}</span>
-          <span class="chip">{{ store.data.隐奸.杨蕾脚状态.脚味程度 }}</span>
+        <div class="track">
+          <div class="fill fill-danger" :style="{ width: store.data.隐奸.杨蕾开发度 + '%' }"></div>
         </div>
+        <div class="bar-note">{{ devNote }}</div>
       </section>
 
-      <section class="block">
-        <h3 class="block-title"><i class="fa-regular fa-feather"></i> 痕迹</h3>
-        <div class="marks">
-          <span v-if="store.data.隐奸.杨蕾痕迹.恋足痕迹 && store.data.隐奸.杨蕾痕迹.恋足痕迹 !== '无'" class="mark">恋足 · {{ store.data.隐奸.杨蕾痕迹.恋足痕迹 }}</span>
-          <span v-if="store.data.隐奸.杨蕾痕迹.TK痕迹 && store.data.隐奸.杨蕾痕迹.TK痕迹 !== '无'" class="mark">TK · {{ store.data.隐奸.杨蕾痕迹.TK痕迹 }}</span>
-          <span v-if="store.data.隐奸.杨蕾痕迹.SM痕迹 && store.data.隐奸.杨蕾痕迹.SM痕迹 !== '无'" class="mark">SM · {{ store.data.隐奸.杨蕾痕迹.SM痕迹 }}</span>
-          <span v-if="store.data.隐奸.杨蕾痕迹.味道 && store.data.隐奸.杨蕾痕迹.味道 !== '无'" class="mark">味道 · {{ store.data.隐奸.杨蕾痕迹.味道 }}</span>
-          <span v-if="!hasMark" class="mark empty">干干净净</span>
+      <section class="bar-block">
+        <div class="bar-head">
+          <span class="bar-name">服从度</span>
+          <span class="bar-pct">{{ store.data.隐奸.服从度 }}</span>
         </div>
-      </section>
-
-      <section class="block">
-        <h3 class="block-title"><i class="fa-regular fa-book"></i> 发生的事</h3>
-        <div class="events">
-          <div v-for="(e, i) in store.data.隐奸.隐奸事件记录" :key="i" class="event">{{ e }}</div>
-          <div v-if="!store.data.隐奸.隐奸事件记录.length" class="event empty">什么也没发生</div>
+        <div class="track">
+          <div class="fill fill-danger" :style="{ width: store.data.隐奸.服从度 + '%' }"></div>
         </div>
+        <div class="bar-note">{{ obeyNote }}</div>
       </section>
 
-      <section class="block">
-        <h3 class="block-title"><i class="fa-regular fa-heart"></i> 她心里，你</h3>
-        <div class="bar-row">
-          <span class="bar-label">依赖</span>
-          <div class="track">
-            <div class="fill fill-accent" :style="{ width: store.data.杨蕾.对小v依赖度 + '%' }"></div>
-          </div>
+      <section class="bar-block">
+        <div class="bar-head">
+          <span class="bar-name">对你的依赖</span>
           <span class="bar-pct">{{ store.data.杨蕾.对小v依赖度 }}</span>
         </div>
-        <div class="note">{{ depNote }}</div>
+        <div class="track">
+          <div class="fill fill-accent" :style="{ width: store.data.杨蕾.对小v依赖度 + '%' }"></div>
+        </div>
+        <div class="bar-note">{{ depNote }}</div>
       </section>
     </div>
   </div>
@@ -84,6 +69,17 @@ const statusText = computed(() => {
   return '安静自习';
 });
 
+const relationNote = computed(() => {
+  const v = store.data.隐奸.主奴关系深度;
+  if (v >= 91) return '离了主人活不下去';
+  if (v >= 76) return '主人的规矩看得比命重';
+  if (v >= 61) return '主人几天不理就失眠';
+  if (v >= 46) return '背得出整本家规';
+  if (v >= 31) return '会自己跪下来了';
+  if (v >= 16) return '学会叫主人了';
+  return '刚被网圈骗到线下';
+});
+
 const devNote = computed(() => {
   const v = store.data.隐奸.杨蕾开发度;
   if (v >= 91) return '偏爱沉沦';
@@ -95,6 +91,17 @@ const devNote = computed(() => {
   return '害羞抗拒';
 });
 
+const obeyNote = computed(() => {
+  const v = store.data.隐奸.服从度;
+  if (v >= 91) return '主人的话就是圣旨';
+  if (v >= 76) return '不等命令就自己跪好';
+  if (v >= 61) return '主人说什么是什么';
+  if (v >= 46) return '让几天不洗脚也照做';
+  if (v >= 31) return '命令还没说完就点头';
+  if (v >= 16) return '嘴上说不，身体先动';
+  return '要犹豫一下才照做';
+});
+
 const depNote = computed(() => {
   const v = store.data.杨蕾.对小v依赖度;
   if (v >= 70) return '把你当弟弟';
@@ -102,17 +109,12 @@ const depNote = computed(() => {
   if (v >= 20) return '渐渐熟悉';
   return '温和疏离';
 });
-
-const hasMark = computed(() => {
-  const m = store.data.隐奸.杨蕾痕迹;
-  return [m.恋足痕迹, m.TK痕迹, m.SM痕迹, m.味道].some(v => v && v !== '无');
-});
 </script>
 
 <style lang="scss" scoped>
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
   margin: 0 auto;
   background: var(--c-surface);
   border: 1px solid var(--c-border);
@@ -162,48 +164,39 @@ const hasMark = computed(() => {
 }
 
 .body {
-  padding: 12px 14px 14px;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.block {
+.bar-block {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
-.block-title {
+.bar-head {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bar-name {
+  font-size: 12px;
   font-weight: 600;
-  color: var(--c-primary-deep);
+  color: var(--c-text);
   letter-spacing: 1px;
 }
 
-.block-title i {
-  color: var(--c-primary);
-}
-
-.bar-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.bar-label {
-  width: 28px;
-  font-size: 10px;
+.bar-pct {
+  font-size: 11px;
+  font-weight: 700;
   color: var(--c-text-muted);
-  flex-shrink: 0;
 }
 
 .track {
-  flex: 1;
-  height: 10px;
+  height: 12px;
   border-radius: 999px;
   background: #f2e9df;
   overflow: hidden;
@@ -223,73 +216,8 @@ const hasMark = computed(() => {
   background: linear-gradient(90deg, #c4ddd0, var(--c-accent));
 }
 
-.bar-pct {
-  width: 28px;
-  text-align: right;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--c-text-muted);
-  flex-shrink: 0;
-}
-
-.note {
-  font-size: 10px;
-  color: var(--c-text-muted);
-  padding-left: 36px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.chip {
-  background: #fbf4ec;
-  border: 1px solid var(--c-border);
-  border-radius: 999px;
-  padding: 4px 10px;
+.bar-note {
   font-size: 11px;
-  color: var(--c-text);
-}
-
-.marks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.mark {
-  background: #fdf5f5;
-  border: 1px solid #f0d8d8;
-  border-radius: 8px;
-  padding: 4px 9px;
-  font-size: 11px;
-  color: #a06a6a;
-}
-
-.mark.empty {
-  background: #f7f7f7;
-  border-color: var(--c-border);
   color: var(--c-text-muted);
-}
-
-.events {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.event {
-  font-size: 11px;
-  color: var(--c-text);
-  line-height: 1.6;
-  padding-left: 8px;
-  border-left: 2px solid var(--c-border);
-}
-
-.event.empty {
-  color: var(--c-text-muted);
-  border-left-color: #eee;
 }
 </style>

@@ -12,6 +12,7 @@ export const Schema = z.object({
   隐奸: z.object({
     主奴关系深度: z.coerce.number().transform(v => _.clamp(v, 0, 100)).prefault(0),
     杨蕾开发度: z.coerce.number().transform(v => _.clamp(v, 0, 100)).prefault(0),
+    服从度: z.coerce.number().transform(v => _.clamp(v, 0, 100)).prefault(0),
     杨蕾当前状态: z.enum(['空闲', '被调教中', '刚被玩弄完']).prefault('空闲'),
     隐奸事件记录: z.array(z.string()).prefault([]),
     杨蕾痕迹: z.object({
