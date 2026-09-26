@@ -14,10 +14,12 @@ export const Schema = z.object({
     杨蕾开发度: z.coerce.number().transform(v => _.clamp(v, 0, 100)).prefault(0),
     杨蕾当前状态: z.enum(['空闲', '被调教中', '刚被玩弄完']).prefault('空闲'),
     隐奸事件记录: z.array(z.string()).prefault([]),
-    杨蕾痕迹: z.record(
-      z.enum(['恋足痕迹', 'TK痕迹', 'SM痕迹', '味道']),
-      z.string(),
-    ).prefault({}),
+    杨蕾痕迹: z.object({
+      恋足痕迹: z.string().prefault('无'),
+      TK痕迹: z.string().prefault('无'),
+      SM痕迹: z.string().prefault('无'),
+      味道: z.string().prefault('无'),
+    }).prefault({}),
     杨蕾脚状态: z.object({
       捂脚天数: z.coerce.number().prefault(0),
       袜子状态: z.string().prefault('待初始化'),

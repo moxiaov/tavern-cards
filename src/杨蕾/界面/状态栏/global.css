@@ -5,16 +5,15 @@
 }
 
 :root {
-  --c-text: #4a3f3f;
-  --c-text-muted: #9b8e8e;
-  --c-surface: #faf6f2;
-  --c-surface-deep: #3a2f3a;
-  --c-border: #e3d8d8;
-  --c-primary: #6b4a6b;
-  --c-primary-deep: #4d354d;
-  --c-danger: #a04545;
-  --c-accent: #d9a7b0;
-  --c-foot: #b08a5a;
+  --c-text: #5a4a3a;
+  --c-text-muted: #a89680;
+  --c-surface: #fffdf9;
+  --c-bg: #faf6ef;
+  --c-border: #ece1d3;
+  --c-primary: #d8a8b0;
+  --c-primary-deep: #a97c86;
+  --c-accent: #9cb8a8;
+  --c-danger: #c98f8f;
 
-  --font-main: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --font-main: 'Sarasa UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
