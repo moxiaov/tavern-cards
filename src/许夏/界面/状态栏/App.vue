@@ -46,35 +46,35 @@
 
       <section class="bar-block">
         <div class="bar-head">
-          <span class="bar-name">陆阳 · 恋痒</span>
-          <span class="bar-pct">{{ store.data.前男友.陆阳.沉沦度 }} · {{ luCount }}</span>
+          <span class="bar-name">陆阳</span>
+          <span class="bar-pct">沉沦 {{ store.data.前男友.陆阳.沉沦度 }}</span>
         </div>
         <div class="track">
           <div class="fill fill-danger" :style="{ width: store.data.前男友.陆阳.沉沦度 + '%' }"></div>
         </div>
-        <div class="bar-note">{{ luNote }}</div>
+        <div class="bar-note">{{ luNote }} · 做爱{{ store.data.前男友.陆阳.次数.做爱 }} 口交{{ store.data.前男友.陆阳.次数.口交 }} TK{{ store.data.前男友.陆阳.次数.TK }} 调教{{ store.data.前男友.陆阳.次数.调教 }}</div>
       </section>
 
       <section class="bar-block">
         <div class="bar-head">
-          <span class="bar-name">程屿 · SM</span>
-          <span class="bar-pct">{{ store.data.前男友.程屿.沉沦度 }} · {{ chengCount }}</span>
+          <span class="bar-name">程屿</span>
+          <span class="bar-pct">沉沦 {{ store.data.前男友.程屿.沉沦度 }}</span>
         </div>
         <div class="track">
           <div class="fill fill-danger" :style="{ width: store.data.前男友.程屿.沉沦度 + '%' }"></div>
         </div>
-        <div class="bar-note">{{ chengNote }}</div>
+        <div class="bar-note">{{ chengNote }} · 做爱{{ store.data.前男友.程屿.次数.做爱 }} 口交{{ store.data.前男友.程屿.次数.口交 }} TK{{ store.data.前男友.程屿.次数.TK }} 调教{{ store.data.前男友.程屿.次数.调教 }}</div>
       </section>
 
       <section class="bar-block">
         <div class="bar-head">
-          <span class="bar-name">江野 · 恋足寸止</span>
-          <span class="bar-pct">{{ store.data.前男友.江野.沉沦度 }} · {{ jiangCount }}</span>
+          <span class="bar-name">江野</span>
+          <span class="bar-pct">沉沦 {{ store.data.前男友.江野.沉沦度 }}</span>
         </div>
         <div class="track">
           <div class="fill fill-danger" :style="{ width: store.data.前男友.江野.沉沦度 + '%' }"></div>
         </div>
-        <div class="bar-note">{{ jiangNote }}</div>
+        <div class="bar-note">{{ jiangNote }} · 做爱{{ store.data.前男友.江野.次数.做爱 }} 口交{{ store.data.前男友.江野.次数.口交 }} TK{{ store.data.前男友.江野.次数.TK }} 调教{{ store.data.前男友.江野.次数.调教 }}</div>
       </section>
 
       <section class="trace-block">
@@ -160,20 +160,6 @@ const jiangNote = computed(() => {
   return '可有可无';
 });
 
-const luCount = computed(() => {
-  const c = store.data.前男友.陆阳.次数;
-  return `${c.做爱}/${c.口交}/${c.TK}/${c.调教}`;
-});
-
-const chengCount = computed(() => {
-  const c = store.data.前男友.程屿.次数;
-  return `${c.做爱}/${c.口交}/${c.TK}/${c.调教}`;
-});
-
-const jiangCount = computed(() => {
-  const c = store.data.前男友.江野.次数;
-  return `${c.做爱}/${c.口交}/${c.TK}/${c.调教}`;
-});
 </script>
 
 <style lang="scss" scoped>
