@@ -3,7 +3,7 @@
     <header class="header">
       <div class="title-wrap">
         <span class="title">许夏</span>
-        <span class="subtitle">心理学研究生 · 足球社</span>
+        <span class="subtitle">星港市 · {{ store.data.世界.星期 }} · {{ store.data.世界.时间段 }}</span>
       </div>
       <span class="status">{{ store.data.许夏.当前心情状态 }}</span>
     </header>
