@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "许夏": {
+      "type": "object",
+      "properties": {
+        "开发度": {
+          "type": "number"
+        },
+        "对男主感情": {
+          "type": "number"
+        },
+        "羞耻度": {
+          "type": "number"
+        },
+        "心里出轨度": {
+          "type": "number"
+        },
+        "当前心情状态": {
+          "type": "string"
+        },
+        "心理弧线阶段": {
+          "type": "number"
+        },
+        "身体痕迹": {
+          "type": "object",
+          "properties": {
+            "做爱": {
+              "type": "string"
+            },
+            "TK": {
+              "type": "string"
+            },
+            "SM": {
+              "type": "string"
+            },
+            "恋足": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "做爱",
+            "TK",
+            "SM",
+            "恋足"
+          ]
+        }
+      },
+      "required": [
+        "开发度",
+        "对男主感情",
+        "羞耻度",
+        "心里出轨度",
+        "当前心情状态",
+        "心理弧线阶段",
+        "身体痕迹"
+      ]
+    },
+    "前男友": {
+      "type": "object",
+      "properties": {
+        "陆阳": {
+          "type": "object",
+          "properties": {
+            "沉沦度": {
+              "type": "number"
+            },
+            "次数": {
+              "type": "object",
+              "properties": {
+                "做爱": {
+                  "type": "number"
+                },
+                "口交": {
+                  "type": "number"
+                },
+                "TK": {
+                  "type": "number"
+                },
+                "调教": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "做爱",
+                "口交",
+                "TK",
+                "调教"
+              ]
+            }
+          },
+          "required": [
+            "沉沦度",
+            "次数"
+          ]
+        },
+        "程屿": {
+          "type": "object",
+          "properties": {
+            "沉沦度": {
+              "type": "number"
+            },
+            "次数": {
+              "type": "object",
+              "properties": {
+                "做爱": {
+                  "type": "number"
+                },
+                "口交": {
+                  "type": "number"
+                },
+                "TK": {
+                  "type": "number"
+                },
+                "调教": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "做爱",
+                "口交",
+                "TK",
+                "调教"
+              ]
+            }
+          },
+          "required": [
+            "沉沦度",
+            "次数"
+          ]
+        },
+        "江野": {
+          "type": "object",
+          "properties": {
+            "沉沦度": {
+              "type": "number"
+            },
+            "次数": {
+              "type": "object",
+              "properties": {
+                "做爱": {
+                  "type": "number"
+                },
+                "口交": {
+                  "type": "number"
+                },
+                "TK": {
+                  "type": "number"
+                },
+                "调教": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "做爱",
+                "口交",
+                "TK",
+                "调教"
+              ]
+            },
+            "脚状态": {
+              "type": "object",
+              "properties": {
+                "闷脚天数": {
+                  "type": "number"
+                },
+                "脚味状态": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "闷脚天数",
+                "脚味状态"
+              ]
+            }
+          },
+          "required": [
+            "沉沦度",
+            "次数",
+            "脚状态"
+          ]
+        }
+      },
+      "required": [
+        "陆阳",
+        "程屿",
+        "江野"
+      ]
+    },
+    "世界": {
+      "type": "object",
+      "properties": {
+        "当前状态": {
+          "type": "string",
+          "enum": [
+            "空闲",
+            "约炮中",
+            "刚回来"
+          ]
+        },
+        "当前约炮对象": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "当前状态",
+        "当前约炮对象"
+      ]
+    }
+  },
+  "required": [
+    "许夏",
+    "前男友",
+    "世界"
+  ]
+}

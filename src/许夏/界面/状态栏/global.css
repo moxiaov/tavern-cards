@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --c-text: #5c4a36;
+  --c-text-muted: #b0a08a;
+  --c-surface: #fffdf8;
+  --c-bg: #faf6ee;
+  --c-border: #eee2d0;
+  --c-primary: #e8b08a;
+  --c-primary-deep: #b8805c;
+  --c-accent: #d9a87c;
+  --c-danger: #c9856a;
+
+  --font-main: 'Sarasa UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
