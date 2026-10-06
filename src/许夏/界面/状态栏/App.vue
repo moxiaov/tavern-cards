@@ -3,13 +3,16 @@
     <header class="header">
       <div class="title-wrap">
         <span class="title">许夏</span>
-        <span class="subtitle">星港市 · {{ store.data.世界.星期 }} · {{ store.data.世界.时间段 }}</span>
+        <span class="subtitle">{{ store.data.世界.星期 }} · {{ store.data.世界.时间段 }}</span>
       </div>
-      <span class="status">{{ store.data.许夏.当前心情状态 }}</span>
+      <span class="mood">{{ store.data.许夏.当前心情状态 }}</span>
     </header>
 
     <div class="body">
-      <div class="stage-chip">{{ arcStage }}</div>
+      <div class="arc">
+        <span class="arc-label">{{ arcStage }}</span>
+        <span class="arc-hint">{{ arcHint }}</span>
+      </div>
 
       <section class="bar-block">
         <div class="bar-head">
@@ -44,6 +47,8 @@
         <div class="bar-note">{{ loveNote }}</div>
       </section>
 
+      <div class="divider"></div>
+
       <section class="bar-block">
         <div class="bar-head">
           <span class="bar-name">陆阳</span>
@@ -76,19 +81,6 @@
         </div>
         <div class="bar-note">{{ jiangNote }} · 做爱{{ store.data.前男友.江野.次数.做爱 }} 口交{{ store.data.前男友.江野.次数.口交 }} TK{{ store.data.前男友.江野.次数.TK }} 调教{{ store.data.前男友.江野.次数.调教 }}</div>
       </section>
-
-      <section class="trace-block">
-        <div class="trace-head">身体痕迹</div>
-        <div class="trace-item">做爱：{{ store.data.许夏.身体痕迹.做爱 || '无' }}</div>
-        <div class="trace-item">TK：{{ store.data.许夏.身体痕迹.TK || '无' }}</div>
-        <div class="trace-item">SM：{{ store.data.许夏.身体痕迹.SM || '无' }}</div>
-        <div class="trace-item">恋足：{{ store.data.许夏.身体痕迹.恋足 || '无' }}</div>
-      </section>
-
-      <section class="trace-block">
-        <div class="trace-head">脚状态</div>
-        <div class="trace-item">闷脚 {{ store.data.前男友.江野.脚状态.闷脚天数 }} 天 · {{ store.data.前男友.江野.脚状态.脚味状态 }}</div>
-      </section>
     </div>
   </div>
 </template>
@@ -102,7 +94,21 @@ const store = useDataStore();
 const arcStage = computed(() => {
   const v = store.data.许夏.心理弧线阶段;
   const names = ['起点', '意外试探', '理解NTR', '理解TK', '融合', '接纳', '一起玩'];
-  return '心理弧线 · ' + (names[v] || names[0]);
+  return names[v] || names[0];
+});
+
+const arcHint = computed(() => {
+  const v = store.data.许夏.心理弧线阶段;
+  const hints = [
+    '她还没对你松口',
+    '她在试探你',
+    '她开始懂你的癖好了',
+    '她把过去讲给你听',
+    '她看懂了你最想要的',
+    '她愿意陪你玩了',
+    '她主动跨出那一步了'
+  ];
+  return hints[v] || hints[0];
 });
 
 const devNote = computed(() => {
@@ -159,7 +165,6 @@ const jiangNote = computed(() => {
   if (v >= 21) return '有点上头';
   return '可有可无';
 });
-
 </script>
 
 <style lang="scss" scoped>
@@ -167,74 +172,91 @@ const jiangNote = computed(() => {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  background: var(--c-surface);
+  background: linear-gradient(180deg, var(--c-surface), var(--c-surface-2));
   border: 1px solid var(--c-border);
   border-radius: 16px;
   overflow: hidden;
   font-family: var(--font-main);
   color: var(--c-text);
   font-size: 12px;
-  box-shadow: 0 4px 16px rgba(184, 128, 92, 0.10);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
 
 .header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 14px 16px;
-  background: linear-gradient(135deg, #fdf6ee, #f9ecdf);
+  padding: 16px 18px 14px;
   border-bottom: 1px solid var(--c-border);
 }
 
 .title-wrap {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .title {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
-  color: var(--c-primary-deep);
-  letter-spacing: 4px;
+  color: var(--c-accent);
+  letter-spacing: 6px;
 }
 
 .subtitle {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--c-text-muted);
   letter-spacing: 1px;
 }
 
-.status {
-  font-size: 11px;
-  color: var(--c-primary-deep);
-  background: #fff;
+.mood {
+  font-size: 12px;
+  color: var(--c-accent);
+  background: rgba(212, 93, 121, 0.16);
   border: 1px solid var(--c-border);
   border-radius: 999px;
-  padding: 3px 10px;
+  padding: 5px 14px;
 }
 
 .body {
-  padding: 14px 16px 16px;
+  padding: 14px 18px 18px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.stage-chip {
-  align-self: flex-start;
+.arc {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background: rgba(255, 158, 181, 0.08);
+  border: 1px solid rgba(212, 93, 121, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.arc-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-primary);
+  letter-spacing: 1px;
+}
+
+.arc-hint {
   font-size: 11px;
-  color: var(--c-primary-deep);
-  background: #fdf3ea;
-  border: 1px solid var(--c-border);
-  border-radius: 6px;
-  padding: 3px 8px;
+  color: var(--c-text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--c-border);
+  opacity: 0.5;
 }
 
 .bar-block {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .bar-head {
@@ -257,9 +279,9 @@ const jiangNote = computed(() => {
 }
 
 .track {
-  height: 12px;
+  height: 10px;
   border-radius: 999px;
-  background: #f2e9df;
+  background: rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -270,38 +292,18 @@ const jiangNote = computed(() => {
 }
 
 .fill-primary {
-  background: linear-gradient(90deg, #f0c9a0, var(--c-primary));
+  background: linear-gradient(90deg, #7c2d3e, var(--c-primary));
 }
 
 .fill-danger {
-  background: linear-gradient(90deg, #eec3b8, var(--c-danger));
+  background: linear-gradient(90deg, #8c2a3e, var(--c-danger));
 }
 
 .fill-accent {
-  background: linear-gradient(90deg, #e3cfae, var(--c-accent));
+  background: linear-gradient(90deg, #8c4760, var(--c-accent));
 }
 
 .bar-note {
-  font-size: 11px;
-  color: var(--c-text-muted);
-}
-
-.trace-block {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding-top: 4px;
-  border-top: 1px dashed var(--c-border);
-}
-
-.trace-head {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--c-primary-deep);
-  letter-spacing: 1px;
-}
-
-.trace-item {
   font-size: 11px;
   color: var(--c-text-muted);
 }
